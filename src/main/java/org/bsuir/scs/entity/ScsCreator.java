@@ -3,7 +3,8 @@ package org.bsuir.scs.entity;
 import org.bsuir.scs.creator.CustomCreator;
 import org.bsuir.scs.writer.ScsFileWriter;
 
-import java.io.FileWriter;
+import java.io.File;
+import java.io.IOException;
 
 public class ScsCreator {
     private CustomCreator customCreator;
@@ -20,8 +21,15 @@ public class ScsCreator {
         this.customCreator = customCreator;
     }
 
-    public void createFile(){
+    public void createFile() throws IOException {
         customCreator.create();
         ScsFileWriter scsFileWriter = new ScsFileWriter(this);
+        scsFileWriter.write();
+    }
+
+    public void createFile(File file) throws IOException {
+        customCreator.create();
+        ScsFileWriter scsFileWriter = new ScsFileWriter(this);
+        scsFileWriter.write(file);
     }
 }
