@@ -148,6 +148,6 @@ public class MainFrameController {
 
         radioButtons[0].addActionListener(buttonGroupListener);
         radioButtons[1].addActionListener(buttonGroupListener);
-        radioButtons[1].addActionListener(buttonGroupListener);
+        radioButtons[2].addActionListener(buttonGroupListener);
     }
 }

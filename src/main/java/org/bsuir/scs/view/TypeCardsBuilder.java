@@ -35,6 +35,11 @@ public class TypeCardsBuilder {
         JPanel nrelPanel = createNrelPanel();
         JPanel rrelPanel = createRrelPanel();
 
+        //todo color
+        conceptPanel.setBackground(Color.white);
+        nrelPanel.setBackground(Color.white);
+        rrelPanel.setBackground(Color.white);
+
         cards.add(conceptPanel, DefaultParameters.TYPES[0]);
         cards.add(nrelPanel, DefaultParameters.TYPES[1]);
         cards.add(rrelPanel, DefaultParameters.TYPES[2]);
@@ -57,29 +62,35 @@ public class TypeCardsBuilder {
         panel.add(rrelCheckBoxes[1]);
         panel.add(rrelCheckBoxes[2]);
 
-        layout.setHorizontalGroup(layout.createParallelGroup()
-                .addGroup(layout.createSequentialGroup()
+        layout.setHorizontalGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup()
                         .addComponent(rrelTextFields[0])
                         .addComponent(rrelTextFields[1])
                         .addComponent(rrelTextFields[2])
                         .addComponent(rrelTextFields[3])
                         .addComponent(rrelTextFields[4])
+                        .addComponent(rrelTextFields[5])
+                        .addComponent(rrelTextFields[6])
+                        .addComponent(rrelTextFields[7])
                 )
-                .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup()
                         .addComponent(rrelCheckBoxes[0])
                         .addComponent(rrelCheckBoxes[1])
                         .addComponent(rrelCheckBoxes[2])
                 )
         );
-        layout.setVerticalGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup()
+        layout.setVerticalGroup(layout.createParallelGroup()
+                .addGroup(layout.createSequentialGroup()
                         .addComponent(rrelTextFields[0])
                         .addComponent(rrelTextFields[1])
                         .addComponent(rrelTextFields[2])
                         .addComponent(rrelTextFields[3])
                         .addComponent(rrelTextFields[4])
+                        .addComponent(rrelTextFields[5])
+                        .addComponent(rrelTextFields[6])
+                        .addComponent(rrelTextFields[7])
                 )
-                .addGroup(layout.createParallelGroup()
+                .addGroup(layout.createSequentialGroup()
                         .addComponent(rrelCheckBoxes[0])
                         .addComponent(rrelCheckBoxes[1])
                         .addComponent(rrelCheckBoxes[2])
@@ -190,6 +201,12 @@ public class TypeCardsBuilder {
         JCheckBox transitiveCheckBox = new JCheckBox("transitive");
         JCheckBox reflexiveCheckBox = new JCheckBox("reflexive");
 
+        //todo color
+
+        symmetricalCheckBox.setBackground(Color.white);
+        transitiveCheckBox.setBackground(Color.white);
+        reflexiveCheckBox.setBackground(Color.white);
+
         rrelTextFields[0] = systemIdentifierField;
         rrelTextFields[1] = mainRussianIdentifierField;
         rrelTextFields[2] = mainEnglishIdentifierField;
@@ -243,6 +260,11 @@ public class TypeCardsBuilder {
         JCheckBox symmetricalCheckBox = new JCheckBox("symmetrical");
         JCheckBox transitiveCheckBox = new JCheckBox("transitive");
         JCheckBox reflexiveCheckBox = new JCheckBox("reflexive");
+
+        //todo color
+        symmetricalCheckBox.setBackground(Color.white);
+        transitiveCheckBox.setBackground(Color.white);
+        reflexiveCheckBox.setBackground(Color.white);
 
         nrelTextFields[0] = systemIdentifierField;
         nrelTextFields[1] = mainRussianIdentifierField;
@@ -337,6 +359,7 @@ public class TypeCardsBuilder {
     public JTextField[] getNrelTextFields() {
         return nrelTextFields;
     }
+
     /**
      * <br>[0] system identifier</br>
      * <br>[1] main russian identifier</br>

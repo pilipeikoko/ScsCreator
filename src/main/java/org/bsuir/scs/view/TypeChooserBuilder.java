@@ -4,6 +4,7 @@ import org.bsuir.scs.controller.ButtonGroupListener;
 import org.bsuir.scs.params.DefaultParameters;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,10 +20,17 @@ public class TypeChooserBuilder {
         radioButtons = new JRadioButton[AMOUNT_OF_RADIO_BUTTONS];
         panel = new JPanel();
         buttonGroup = new ButtonGroup();
+        //todo color
+        panel.setBackground(Color.white);
 
         JRadioButton conceptButton = new JRadioButton("concept");
         JRadioButton nrelButton = new JRadioButton("nrel");
         JRadioButton rrelButton = new JRadioButton("rrel");
+
+        //todo color
+        conceptButton.setBackground(Color.white);
+        nrelButton.setBackground(Color.white);
+        rrelButton.setBackground(Color.white);
 
         radioButtons[0] = conceptButton;
         radioButtons[1] = nrelButton;

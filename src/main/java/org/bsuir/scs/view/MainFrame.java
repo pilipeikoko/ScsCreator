@@ -12,7 +12,14 @@ public class MainFrame {
     private final ControlButtonsBuilder controlButtonsBuilder;
 
     public MainFrame() {
+        try{
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         frame = new JFrame();
+        //todo color
+        frame.setBackground(Color.white);
         typeChooserBuilder = new TypeChooserBuilder();
         typeCardsBuilder = new TypeCardsBuilder();
         controlButtonsBuilder = new ControlButtonsBuilder();
