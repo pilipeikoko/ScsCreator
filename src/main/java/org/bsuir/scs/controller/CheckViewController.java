@@ -1,6 +1,6 @@
 package org.bsuir.scs.controller;
 
-import org.bsuir.scs.entity.ScsCreator;
+import org.bsuir.scs.entity.ScsEntity;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,13 +8,13 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 
 public class CheckViewController {
-    private final ScsCreator creator;
+    private final ScsEntity creator;
     private final JTextArea label;
     private final JButton okButton;
     private final JButton copyButton;
     private final JLabel copiedLabel;
 
-    public CheckViewController(ScsCreator creator, JTextArea label, JButton okButton, JButton copyButton,JLabel copiedLabel) {
+    public CheckViewController(ScsEntity creator, JTextArea label, JButton okButton, JButton copyButton, JLabel copiedLabel) {
         this.creator = creator;
         this.label= label;
         this.okButton = okButton;

@@ -1,6 +1,6 @@
 package org.bsuir.scs.controller;
 import org.bsuir.scs.alert.Alert;
-import org.bsuir.scs.entity.ScsCreator;
+import org.bsuir.scs.entity.ScsEntity;
 import org.bsuir.scs.view.TypeCardsBuilder;
 
 import javax.swing.*;
@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class SaveToFileController {
     private final JFileChooser fileChooser;
-    private final ScsCreator creator;
+    private final ScsEntity creator;
     /**
      * @see TypeCardsBuilder#getConceptTextFields()
      */
@@ -22,7 +22,7 @@ public class SaveToFileController {
      * @see TypeCardsBuilder#getRrelTextFields()
      */
     private final JTextField[] rrelTextFields;
-    public SaveToFileController(JFileChooser fileChooser, ScsCreator creator,JTextField[] conceptTextFields,JTextField[] nrelTextFields,JTextField[] rrelTextFields) {
+    public SaveToFileController(JFileChooser fileChooser, ScsEntity creator, JTextField[] conceptTextFields, JTextField[] nrelTextFields, JTextField[] rrelTextFields) {
         this.fileChooser = fileChooser;
         this.creator = creator;
         this.conceptTextFields = conceptTextFields;

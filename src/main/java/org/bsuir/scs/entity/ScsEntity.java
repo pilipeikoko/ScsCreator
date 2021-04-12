@@ -6,10 +6,10 @@ import org.bsuir.scs.writer.ScsFileWriter;
 import java.io.File;
 import java.io.IOException;
 
-public class ScsCreator {
+public class ScsEntity {
     private CustomCreator customCreator;
 
-    public ScsCreator(CustomCreator customCreator){
+    public ScsEntity(CustomCreator customCreator){
         this.customCreator = customCreator;
     }
 

@@ -1,7 +1,7 @@
 package org.bsuir.scs.view;
 
 import org.bsuir.scs.controller.CheckViewController;
-import org.bsuir.scs.entity.ScsCreator;
+import org.bsuir.scs.entity.ScsEntity;
 import org.bsuir.scs.view.border.RoundedBorder;
 
 import javax.swing.*;
@@ -11,7 +11,7 @@ public class CheckViewBuilder {
     private final JTextArea label;
     private final JButton copyButton;
     private final JButton okButton;
-    private final ScsCreator creator;
+    private final ScsEntity creator;
     private final JLabel copiedToClipboardLabel;
 
     {
@@ -21,7 +21,7 @@ public class CheckViewBuilder {
         okButton = new JButton("Ok");
     }
 
-    public CheckViewBuilder(ScsCreator creator){
+    public CheckViewBuilder(ScsEntity creator){
         this.creator = creator;
         setLabelInfo();
         setButtons();
