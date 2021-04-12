@@ -1,6 +1,5 @@
 package org.bsuir.scs.view;
 
-import org.apache.log4j.Layout;
 import org.bsuir.scs.controller.CheckViewController;
 import org.bsuir.scs.entity.ScsCreator;
 import org.bsuir.scs.view.border.RoundedBorder;
@@ -44,6 +43,9 @@ public class CheckViewBuilder {
         dialog.setTitle("Do you like what you see buddy?");
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         JPanel panel = new JPanel();
+
+        //todo color
+        panel.setBackground(Color.white);
 
         JScrollPane scrollPane = new JScrollPane(panel);
 
