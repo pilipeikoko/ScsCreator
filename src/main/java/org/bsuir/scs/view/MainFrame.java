@@ -10,6 +10,7 @@ public class MainFrame {
     private final TypeChooserBuilder typeChooserBuilder;
     private final TypeCardsBuilder typeCardsBuilder;
     private final ControlButtonsBuilder controlButtonsBuilder;
+    private final MenuBarBuilder menuBarBuilder;
 
     public MainFrame() {
         try{
@@ -21,6 +22,7 @@ public class MainFrame {
         //todo color
 
         frame.setBackground(Color.white);
+        menuBarBuilder = new MenuBarBuilder();
         typeChooserBuilder = new TypeChooserBuilder();
         typeCardsBuilder = new TypeCardsBuilder();
         controlButtonsBuilder = new ControlButtonsBuilder();
@@ -33,11 +35,13 @@ public class MainFrame {
 
     private void setFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(600,300));
         frame.add(typeChooserBuilder.getPanel(),BorderLayout.WEST);
         frame.add(typeCardsBuilder.getCards(),BorderLayout.CENTER);
         frame.add(controlButtonsBuilder.getPanel(),BorderLayout.PAGE_END);
         frame.pack();
         frame.setLocationRelativeTo(null);
+        frame.setMenuBar(menuBarBuilder.getMenuBar());
         frame.setVisible(true);
     }
 }

@@ -81,6 +81,7 @@ public class CheckViewBuilder {
 
         dialog.add(scrollPane);
         dialog.pack();
+
         dialog.setLocation(dim.width/2-dialog.getSize().width/2, dim.height/2-dialog.getSize().height/2);
         dialog.setVisible(true);
 
