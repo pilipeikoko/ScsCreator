@@ -13,9 +13,9 @@ public class MainFrame {
     private final MenuBarBuilder menuBarBuilder;
 
     public MainFrame() {
-        try{
+        try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         frame = new JFrame("Scs creator");
@@ -30,15 +30,15 @@ public class MainFrame {
         new MainFrameController(typeChooserBuilder.getButtonGroup(), typeChooserBuilder.getRadioButtons(),
                 typeCardsBuilder.getConceptTextFields(), typeCardsBuilder.getNrelTextFields(),
                 typeCardsBuilder.getRrelTextFields(), typeCardsBuilder.getNrelCheckBoxes(), typeCardsBuilder.getRrelCheckBoxes(),
-                typeCardsBuilder.getCards(),controlButtonsBuilder.getCheckButton(),controlButtonsBuilder.getSaveButton());
+                typeCardsBuilder.getCards(), controlButtonsBuilder.getCheckButton(), controlButtonsBuilder.getSaveButton());
     }
 
     private void setFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(600,300));
-        frame.add(typeChooserBuilder.getPanel(),BorderLayout.WEST);
-        frame.add(typeCardsBuilder.getCards(),BorderLayout.CENTER);
-        frame.add(controlButtonsBuilder.getPanel(),BorderLayout.PAGE_END);
+        frame.setPreferredSize(new Dimension(600, 300));
+        frame.add(typeChooserBuilder.getPanel(), BorderLayout.WEST);
+        frame.add(typeCardsBuilder.getCards(), BorderLayout.CENTER);
+        frame.add(controlButtonsBuilder.getPanel(), BorderLayout.PAGE_END);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setMenuBar(menuBarBuilder.getMenuBar());

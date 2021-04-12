@@ -5,8 +5,8 @@ import org.bsuir.scs.creator.ConceptCreator;
 import org.bsuir.scs.creator.NrelCreator;
 import org.bsuir.scs.creator.RrelCreator;
 import org.bsuir.scs.entity.ScsEntity;
-import org.bsuir.scs.exception.customException;
-import org.bsuir.scs.params.DefaultParameters;
+import org.bsuir.scs.exception.CustomException;
+import org.bsuir.scs.util.DefaultParameters;
 import org.bsuir.scs.validator.Validator;
 import org.bsuir.scs.view.CheckViewBuilder;
 import org.bsuir.scs.view.SaveToFileView;
@@ -69,27 +69,29 @@ public class MainFrameController {
             public void actionPerformed(ActionEvent e) {
                 try {
                     createSaveView();
-                } catch (org.bsuir.scs.exception.customException | NumberFormatException customException) {
+                } catch (CustomException | NumberFormatException customException) {
                     Alert.incorrectInfoAlert(customException.getMessage());
                 }
             }
         });
     }
 
-    private void createSaveView() throws customException {
+    private void createSaveView() throws CustomException {
         String action = buttonGroup.getSelection().getActionCommand();
         if (action.equals(DefaultParameters.TYPES[0])) {
+
             String systemIdentifier = conceptTextFields[0].getText();
             String russianIdentifier = conceptTextFields[1].getText();
             String englishIdentifier = conceptTextFields[2].getText();
             String definition = conceptTextFields[3].getText();
             String statement = conceptTextFields[4].getText();
 
-            Validator.validateConcept(systemIdentifier,russianIdentifier,englishIdentifier,definition,statement);
+            Validator.validateConcept(systemIdentifier, russianIdentifier, englishIdentifier, definition, statement);
 
             ConceptCreator creator = new ConceptCreator(systemIdentifier, definition, statement, russianIdentifier, englishIdentifier);
             new SaveToFileView(new ScsEntity(creator), conceptTextFields, nrelTextFields, rrelTextFields);
         } else if (action.equals(DefaultParameters.TYPES[1])) {
+
             String systemIdentifier = nrelTextFields[0].getText();
             String russianIdentifier = nrelTextFields[1].getText();
             String englishIdentifier = nrelTextFields[2].getText();
@@ -102,7 +104,7 @@ public class MainFrameController {
             boolean isTransitive = nrelCheckBoxes[1].isSelected();
             boolean isReflexive = nrelCheckBoxes[2].isSelected();
 
-            Validator.validateRelation(systemIdentifier,russianIdentifier,englishIdentifier,definition,statement,arity,firstDomain,secondDomain);
+            Validator.validateRelation(systemIdentifier, russianIdentifier, englishIdentifier, definition, statement, arity, firstDomain, secondDomain);
 
             int numericArity = Integer.parseInt(arity);
 
@@ -115,14 +117,14 @@ public class MainFrameController {
             String englishIdentifier = rrelTextFields[2].getText();
             String definition = rrelTextFields[3].getText();
             String statement = rrelTextFields[4].getText();
-            String arity = nrelTextFields[5].getText();
+            String arity = rrelTextFields[5].getText();
             String firstDomain = rrelTextFields[6].getText();
             String secondDomain = rrelTextFields[7].getText();
             boolean isSymmetric = rrelCheckBoxes[0].isSelected();
             boolean isTransitive = rrelCheckBoxes[1].isSelected();
             boolean isReflexive = rrelCheckBoxes[2].isSelected();
 
-            Validator.validateRelation(systemIdentifier,russianIdentifier,englishIdentifier,definition,statement,arity,firstDomain,secondDomain);
+            Validator.validateRelation(systemIdentifier, russianIdentifier, englishIdentifier, definition, statement, arity, firstDomain, secondDomain);
 
             int numericArity = Integer.parseInt(arity);
 
@@ -138,7 +140,7 @@ public class MainFrameController {
 
                 try {
                     createCheckView();
-                } catch (org.bsuir.scs.exception.customException customException) {
+                } catch (CustomException customException) {
                     Alert.incorrectInfoAlert(customException.getMessage());
                 }
 
@@ -146,7 +148,7 @@ public class MainFrameController {
         });
     }
 
-    private void createCheckView() throws customException {
+    private void createCheckView() throws CustomException {
         String action = buttonGroup.getSelection().getActionCommand();
 
         if (action.equals(DefaultParameters.TYPES[0])) {
@@ -156,7 +158,7 @@ public class MainFrameController {
             String definition = conceptTextFields[3].getText();
             String statement = conceptTextFields[4].getText();
 
-            Validator.validateConcept(systemIdentifier,russianIdentifier,englishIdentifier,definition,statement);
+            Validator.validateConcept(systemIdentifier, russianIdentifier, englishIdentifier, definition, statement);
 
             ConceptCreator creator = new ConceptCreator(systemIdentifier, definition, statement, russianIdentifier, englishIdentifier);
             creator.create();
@@ -175,7 +177,7 @@ public class MainFrameController {
             boolean isTransitive = nrelCheckBoxes[1].isSelected();
             boolean isReflexive = nrelCheckBoxes[2].isSelected();
 
-            Validator.validateRelation(systemIdentifier,russianIdentifier,englishIdentifier,definition,statement,arity,firstDomain,secondDomain);
+            Validator.validateRelation(systemIdentifier, russianIdentifier, englishIdentifier, definition, statement, arity, firstDomain, secondDomain);
 
             int numericArity = Integer.parseInt(arity);
 
@@ -197,7 +199,7 @@ public class MainFrameController {
             boolean isTransitive = rrelCheckBoxes[1].isSelected();
             boolean isReflexive = rrelCheckBoxes[2].isSelected();
 
-            Validator.validateRelation(systemIdentifier,russianIdentifier,englishIdentifier,definition,statement,arity,firstDomain,secondDomain);
+            Validator.validateRelation(systemIdentifier, russianIdentifier, englishIdentifier, definition, statement, arity, firstDomain, secondDomain);
 
             int numericArity = Integer.parseInt(arity);
 

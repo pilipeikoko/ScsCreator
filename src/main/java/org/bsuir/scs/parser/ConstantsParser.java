@@ -1,8 +1,6 @@
 package org.bsuir.scs.parser;
 
-import org.bsuir.scs.creator.CustomCreator;
-import org.bsuir.scs.params.DefaultParameters;
-import org.xml.sax.helpers.DefaultHandler;
+import org.bsuir.scs.util.DefaultParameters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +32,7 @@ public class ConstantsParser {
         for (int i = 0; i < string.length(); ++i) {
             if (string.charAt(i) == '(') {
                 stringBuilder.append(DefaultParameters.LINK_START);
-                //todo check if space after (
+
                 while (string.charAt(++i) != ' ') {
                     stringBuilder.append(string.charAt(i));
                 }

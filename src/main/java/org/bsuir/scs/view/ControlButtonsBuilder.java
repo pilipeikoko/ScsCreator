@@ -10,7 +10,7 @@ public class ControlButtonsBuilder {
     private final JButton checkButton;
     private final JButton saveButton;
 
-    public ControlButtonsBuilder(){
+    public ControlButtonsBuilder() {
 
         panel = new JPanel();
         //todo color
@@ -33,7 +33,7 @@ public class ControlButtonsBuilder {
         layout.setAutoCreateContainerGaps(true);
         panel.setLayout(layout);
         layout.setHorizontalGroup(layout.createSequentialGroup()
-                .addGap(10,80,1500)
+                .addGap(10, 80, 1500)
                 .addComponent(checkButton)
                 .addComponent(saveButton)
         );

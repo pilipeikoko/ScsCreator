@@ -11,7 +11,7 @@ public class SaveToFileView {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Save to");
         fileChooser.setApproveButtonText("Save");
-        fileChooser.setSelectedFile(new File(scsEntity.getCustomCreator().getSystemIdentifier()+".scs"));
-        new SaveToFileController(fileChooser, scsEntity,conceptTextFields,nrelTextFields,rrelTextFields);
+        fileChooser.setSelectedFile(new File(scsEntity.getCustomCreator().getSystemIdentifier() + ".scs"));
+        new SaveToFileController(fileChooser, scsEntity, conceptTextFields, nrelTextFields, rrelTextFields);
     }
 }

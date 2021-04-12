@@ -1,7 +1,7 @@
 package org.bsuir.scs.writer;
 
 import org.bsuir.scs.entity.ScsEntity;
-import org.bsuir.scs.params.DefaultParameters;
+import org.bsuir.scs.util.DefaultParameters;
 
 import java.io.File;
 import java.io.FileWriter;

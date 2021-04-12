@@ -1,12 +1,9 @@
 package org.bsuir.scs.view;
 
-import org.bsuir.scs.controller.ButtonGroupListener;
-import org.bsuir.scs.params.DefaultParameters;
+import org.bsuir.scs.util.DefaultParameters;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class TypeChooserBuilder {
     private static final int AMOUNT_OF_RADIO_BUTTONS = 3;
@@ -16,7 +13,7 @@ public class TypeChooserBuilder {
 
     private final JRadioButton[] radioButtons;
 
-    public TypeChooserBuilder(){
+    public TypeChooserBuilder() {
         radioButtons = new JRadioButton[AMOUNT_OF_RADIO_BUTTONS];
         panel = new JPanel();
         buttonGroup = new ButtonGroup();

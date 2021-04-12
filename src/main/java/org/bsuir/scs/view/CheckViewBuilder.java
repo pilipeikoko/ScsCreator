@@ -85,7 +85,7 @@ public class CheckViewBuilder {
         dialog.setLocation(dim.width/2-dialog.getSize().width/2, dim.height/2-dialog.getSize().height/2);
         dialog.setVisible(true);
 
-        new CheckViewController(creator, label,okButton,copyButton,copiedToClipboardLabel);
+        new CheckViewController(label,okButton,copyButton,copiedToClipboardLabel);
 
     }
 

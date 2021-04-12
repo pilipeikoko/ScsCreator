@@ -1,6 +1,7 @@
 package org.bsuir.scs.creator;
 
-import org.bsuir.scs.params.DefaultParameters;
+import org.bsuir.scs.util.DefaultParameters;
+import org.bsuir.scs.parser.ConstantsParser;
 
 public class NrelCreator extends CustomCreator {
 
@@ -27,7 +28,14 @@ public class NrelCreator extends CustomCreator {
 
     @Override
     public void create() {
-        //todo add constants parser
+
+        ConstantsParser constantsParser = new ConstantsParser();
+
+        definitionConstants = constantsParser.getConstants(definition);
+        statementsConstants = constantsParser.getConstants(statement);
+        definition = constantsParser.replaceConstantsWithLinks(definition);
+        statement = constantsParser.replaceConstantsWithLinks(statement);
+
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(createHeader());
@@ -65,7 +73,7 @@ public class NrelCreator extends CustomCreator {
         stringBuilder.append("\t<= ").append(DefaultParameters.COMBINATION).append(":\n");
         stringBuilder.append("\t{\n");
         stringBuilder.append("\t\t").append(firstDomain).append(";\n");
-        stringBuilder.append("\t\t").append(secondDomain).append(";;\n");
+        stringBuilder.append("\t\t").append(secondDomain).append("\n");
         stringBuilder.append("\t};;\n");
         stringBuilder.append("*);;\n\n");
 

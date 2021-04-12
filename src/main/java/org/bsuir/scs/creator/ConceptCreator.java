@@ -1,6 +1,6 @@
 package org.bsuir.scs.creator;
 
-import org.bsuir.scs.params.DefaultParameters;
+import org.bsuir.scs.util.DefaultParameters;
 import org.bsuir.scs.parser.ConstantsParser;
 
 public class ConceptCreator extends CustomCreator {

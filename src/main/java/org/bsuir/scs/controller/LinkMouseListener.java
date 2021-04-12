@@ -1,5 +1,7 @@
 package org.bsuir.scs.controller;
 
+import org.bsuir.scs.alert.Alert;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -7,7 +9,6 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.SQLTransactionRollbackException;
 
 public class LinkMouseListener {
     private static String DEFAULT_TEXT;
@@ -26,7 +27,7 @@ public class LinkMouseListener {
                     Desktop.getDesktop().browse(new URI(DEFAULT_TEXT));
 
                 } catch (IOException | URISyntaxException e1) {
-                    e1.printStackTrace();
+                    Alert.incorrectInfoAlert("Couldn't open link");
                 }
             }
 

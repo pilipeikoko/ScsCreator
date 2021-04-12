@@ -9,7 +9,7 @@ import java.io.IOException;
 public class ScsEntity {
     private CustomCreator customCreator;
 
-    public ScsEntity(CustomCreator customCreator){
+    public ScsEntity(CustomCreator customCreator) {
         this.customCreator = customCreator;
     }
 

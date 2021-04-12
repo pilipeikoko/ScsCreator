@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
 public class AboutView {
 
 
-    public AboutView(){
+    public AboutView() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
         JDialog dialog = new JDialog();
@@ -44,7 +44,7 @@ public class AboutView {
         dialog.add(panel);
 
         dialog.pack();
-        dialog.setLocation(dim.width/2-dialog.getSize().width/2, dim.height/2-dialog.getSize().height/2);
+        dialog.setLocation(dim.width / 2 - dialog.getSize().width / 2, dim.height / 2 - dialog.getSize().height / 2);
         dialog.setVisible(true);
 
     }

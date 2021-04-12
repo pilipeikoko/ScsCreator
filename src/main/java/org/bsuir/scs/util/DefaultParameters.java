@@ -1,4 +1,4 @@
-package org.bsuir.scs.params;
+package org.bsuir.scs.util;
 
 public class DefaultParameters {
     public static final String DEFAULT_PATH = "out\\storage\\";

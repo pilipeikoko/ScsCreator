@@ -9,7 +9,7 @@ public class ButtonGroupListener implements ActionListener {
     private final ButtonGroup buttonGroup;
     private final JPanel cards;
 
-    public ButtonGroupListener(ButtonGroup buttonGroup,JPanel cards){
+    public ButtonGroupListener(ButtonGroup buttonGroup, JPanel cards) {
         this.buttonGroup = buttonGroup;
         this.cards = cards;
     }

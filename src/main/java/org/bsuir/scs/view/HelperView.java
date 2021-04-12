@@ -34,8 +34,7 @@ public class HelperView {
 
         try {
             BufferedImage myPicture = ImageIO.read(new File("src/main/resources/pictures/cattie.jpg"));
-            myPicture = ImageResizer.resize(myPicture,430,430);
-
+            myPicture = ImageResizer.resize(myPicture, 430, 430);
 
 
             JLabel picLabel = new JLabel(new ImageIcon(myPicture));

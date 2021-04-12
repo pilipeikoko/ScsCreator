@@ -1,4 +1,5 @@
 package org.bsuir.scs.controller;
+
 import org.bsuir.scs.alert.Alert;
 import org.bsuir.scs.entity.ScsEntity;
 import org.bsuir.scs.view.TypeCardsBuilder;
@@ -22,6 +23,7 @@ public class SaveToFileController {
      * @see TypeCardsBuilder#getRrelTextFields()
      */
     private final JTextField[] rrelTextFields;
+
     public SaveToFileController(JFileChooser fileChooser, ScsEntity creator, JTextField[] conceptTextFields, JTextField[] nrelTextFields, JTextField[] rrelTextFields) {
         this.fileChooser = fileChooser;
         this.creator = creator;
@@ -39,8 +41,8 @@ public class SaveToFileController {
 
                 if (e.getActionCommand().equals("ApproveSelection")) {
                     try {
-                       creator.createFile(fileChooser.getSelectedFile());
-                       clearTextFields();
+                        creator.createFile(fileChooser.getSelectedFile());
+                        clearTextFields();
                     } catch (IOException exception) {
                         Alert.incorrectInfoAlert("Couldn't save to file");
                     }

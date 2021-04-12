@@ -1,7 +1,7 @@
 package org.bsuir.scs.view;
 
 import com.tagmycode.plugin.gui.TextPrompt;
-import org.bsuir.scs.params.DefaultParameters;
+import org.bsuir.scs.util.DefaultParameters;
 
 import javax.swing.*;
 import java.awt.*;
@@ -194,7 +194,7 @@ public class TypeCardsBuilder {
         firstDomainFieldPrompt.setFont(font);
 
         JTextField secondDomainField = new JTextField();
-        TextPrompt secondDomainFieldPrompt = new TextPrompt("First domain", secondDomainField);
+        TextPrompt secondDomainFieldPrompt = new TextPrompt("Second domain", secondDomainField);
         secondDomainFieldPrompt.setFont(font);
 
         JCheckBox symmetricalCheckBox = new JCheckBox("symmetrical");
@@ -254,7 +254,7 @@ public class TypeCardsBuilder {
         firstDomainFieldPrompt.setFont(font);
 
         JTextField secondDomainField = new JTextField();
-        TextPrompt secondDomainFieldPrompt = new TextPrompt("First domain", secondDomainField);
+        TextPrompt secondDomainFieldPrompt = new TextPrompt("Second domain", secondDomainField);
         secondDomainFieldPrompt.setFont(font);
 
         JCheckBox symmetricalCheckBox = new JCheckBox("symmetrical");

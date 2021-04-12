@@ -1,6 +1,7 @@
 package org.bsuir.scs.creator;
 
-import org.bsuir.scs.params.DefaultParameters;
+import org.bsuir.scs.util.DefaultParameters;
+import org.bsuir.scs.parser.ConstantsParser;
 
 public class RrelCreator extends CustomCreator {
     public int arity;
@@ -34,8 +35,10 @@ public class RrelCreator extends CustomCreator {
         stringBuilder.append(createDefinition());
         stringBuilder.append(createStatement());
 
-        if (firstDomain != null)
+
+        if (firstDomain != null) {
             stringBuilder.append(createAdditionalInformation());
+        }
 
 
         result = stringBuilder.toString();
@@ -44,18 +47,24 @@ public class RrelCreator extends CustomCreator {
 
     @Override
     protected String createHeader() {
+        ConstantsParser constantsParser = new ConstantsParser();
+
+        definitionConstants = constantsParser.getConstants(definition);
+        statementsConstants = constantsParser.getConstants(statement);
+        definition = constantsParser.replaceConstantsWithLinks(definition);
+        statement = constantsParser.replaceConstantsWithLinks(statement);
+
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(systemIdentifier).append(" <- ").append(DefaultParameters.NREL_NODE_TYPE).append(";;\n\n");
         stringBuilder.append(systemIdentifier).append(" => ").append(DefaultParameters.MAIN_IDTF).append(":\n");
         stringBuilder.append("[").append(russianIdentifier).append("] ").append(DefaultParameters.RUSSIAN_LANGUAGE).append(";\n");
         stringBuilder.append("[").append(englishIdentifier).append("] ").append(DefaultParameters.ENGLISH_LANGUAGE).append(";;\n\n");
-        stringBuilder.append(createAdditionalInformation());
 
         return stringBuilder.toString();
     }
 
-    private String createAdditionalInformation(){
+    private String createAdditionalInformation() {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(systemIdentifier).append("\n");
@@ -68,7 +77,7 @@ public class RrelCreator extends CustomCreator {
         stringBuilder.append("\t<= ").append(DefaultParameters.COMBINATION).append(":\n");
         stringBuilder.append("\t{\n");
         stringBuilder.append("\t\t").append(firstDomain).append(";\n");
-        stringBuilder.append("\t\t").append(secondDomain).append(";;\n");
+        stringBuilder.append("\t\t").append(secondDomain).append("\n");
         stringBuilder.append("\t};;\n");
         stringBuilder.append("*);;\n\n");
 
@@ -88,7 +97,7 @@ public class RrelCreator extends CustomCreator {
 
         stringBuilder.append("\t ").append(DefaultParameters.SYMMETRIC_RELATION_INCLUSION).append("\n");
         stringBuilder.append("\t(*\n");
-        if(isSymmetric)
+        if (isSymmetric)
             stringBuilder.append("\t\t-> ").append(systemIdentifier).append(";;\n");
         else
             stringBuilder.append("\t\t-|> ").append(systemIdentifier).append(";;\n");
@@ -97,7 +106,7 @@ public class RrelCreator extends CustomCreator {
 
         stringBuilder.append("\t ").append(DefaultParameters.TRANSITIVE_RELATION_INCLUSION).append("\n");
         stringBuilder.append("\t(*\n");
-        if(isTransitive)
+        if (isTransitive)
             stringBuilder.append("\t\t-> ").append(systemIdentifier).append(";;\n");
         else
             stringBuilder.append("\t\t-|> ").append(systemIdentifier).append(";;\n");
@@ -106,7 +115,7 @@ public class RrelCreator extends CustomCreator {
 
         stringBuilder.append("\t ").append(DefaultParameters.REFLEXIVE_RELATION_INCLUSION).append("\n");
         stringBuilder.append("\t(*\n");
-        if(isReflexive)
+        if (isReflexive)
             stringBuilder.append("\t\t-> ").append(systemIdentifier).append(";;\n");
         else
             stringBuilder.append("\t\t-|> ").append(systemIdentifier).append(";;\n");
