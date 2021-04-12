@@ -1,17 +1,13 @@
 package org.bsuir.scs.view;
 
-import org.bsuir.scs.alert.Alert;
-import org.bsuir.scs.image.ImageResizer;
+import org.bsuir.scs.image.ImageCreator;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.util.Objects;
 
 public class HelperView {
-    public HelperView() {
+    public HelperView()  {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
         JDialog dialog = new JDialog();
@@ -32,49 +28,43 @@ public class HelperView {
         JLabel exampleText = new JLabel("Example:");
         JLabel example = new JLabel("formal system - (concept_system system) that ....");
 
-        try {
-            BufferedImage myPicture = ImageIO.read(new File("src/main/resources/pictures/cattie.jpg"));
-            myPicture = ImageResizer.resize(myPicture, 430, 430);
+        Image image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/images/cattie.png"))).getImage();
+
+        JLabel picLabel = new JLabel(new ImageIcon(ImageCreator.toBufferedImage(image)));
 
 
-            JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+        howToUseLabel.setFont(boldFont);
+        dontUseLabel.setFont(simpleFont);
+        constantsExplanation.setFont(simpleFont);
+        example.setFont(simpleFont);
 
+        layout.setHorizontalGroup(layout.createParallelGroup()
+                .addComponent(howToUseLabel)
+                .addComponent(dontUseLabel)
+                .addComponent(constantsExplanation)
+                .addComponent(exampleText)
+                .addComponent(example)
+                .addComponent(picLabel)
+        );
+        layout.setVerticalGroup(layout.createSequentialGroup()
+                .addComponent(howToUseLabel)
+                .addComponent(dontUseLabel)
+                .addGap(30)
+                .addComponent(constantsExplanation)
+                .addComponent(exampleText)
+                .addComponent(example)
+                .addComponent(picLabel)
+        );
+        panel.add(howToUseLabel);
+        panel.add(dontUseLabel);
+        panel.add(picLabel);
 
-            howToUseLabel.setFont(boldFont);
-            dontUseLabel.setFont(simpleFont);
-            constantsExplanation.setFont(simpleFont);
-            example.setFont(simpleFont);
+        dialog.add(panel);
 
-            layout.setHorizontalGroup(layout.createParallelGroup()
-                    .addComponent(howToUseLabel)
-                    .addComponent(dontUseLabel)
-                    .addComponent(constantsExplanation)
-                    .addComponent(exampleText)
-                    .addComponent(example)
-                    .addComponent(picLabel)
-            );
-            layout.setVerticalGroup(layout.createSequentialGroup()
-                    .addComponent(howToUseLabel)
-                    .addComponent(dontUseLabel)
-                    .addGap(30)
-                    .addComponent(constantsExplanation)
-                    .addComponent(exampleText)
-                    .addComponent(example)
-                    .addComponent(picLabel)
-            );
-            panel.add(howToUseLabel);
-            panel.add(dontUseLabel);
-            panel.add(picLabel);
-
-            dialog.add(panel);
-
-            dialog.pack();
-            dialog.setLocation(dim.width / 2 - dialog.getSize().width / 2, dim.height / 2 - dialog.getSize().height / 2);
-            dialog.setVisible(true);
-            dialog.setResizable(false);
-        } catch (IOException e) {
-            Alert.incorrectInfoAlert("Couldn't load helper");
-        }
+        dialog.pack();
+        dialog.setLocation(dim.width / 2 - dialog.getSize().width / 2, dim.height / 2 - dialog.getSize().height / 2);
+        dialog.setVisible(true);
+        dialog.setResizable(false);
     }
 
 }
