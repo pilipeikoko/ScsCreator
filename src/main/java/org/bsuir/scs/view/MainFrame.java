@@ -17,8 +17,9 @@ public class MainFrame {
         }catch(Exception e){
             e.printStackTrace();
         }
-        frame = new JFrame();
+        frame = new JFrame("Scs creator");
         //todo color
+
         frame.setBackground(Color.white);
         typeChooserBuilder = new TypeChooserBuilder();
         typeCardsBuilder = new TypeCardsBuilder();
