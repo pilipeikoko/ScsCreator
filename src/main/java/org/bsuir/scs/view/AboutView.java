@@ -30,7 +30,7 @@ public class AboutView {
 
         JLabel source = new JLabel("source-govno-code:\n");
         JLabel gitLink = new JLabel("https://github.com/pilipeikoko/ScsCreator");
-        JLabel iconCreatorText = new JLabel("icon-govno-creator:");
+        JLabel iconCreatorText = new JLabel("icon-artist:");
         JLabel iconCreatorLink = new JLabel("https://www.deviantart.com/makshilo");
 
         new LinkMouseListener(gitLink);
