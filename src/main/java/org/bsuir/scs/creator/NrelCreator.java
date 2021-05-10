@@ -41,7 +41,7 @@ public class NrelCreator extends CustomCreator {
         stringBuilder.append(createHeader());
         stringBuilder.append(createDefinition());
         stringBuilder.append(createStatement());
-        //todo fix
+
         if (firstDomain != null)
             stringBuilder.append(createAdditionalInformation());
 

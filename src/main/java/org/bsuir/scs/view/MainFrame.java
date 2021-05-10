@@ -4,6 +4,7 @@ import org.bsuir.scs.controller.MainFrameController;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class MainFrame {
     private final JFrame frame;
@@ -19,6 +20,10 @@ public class MainFrame {
             e.printStackTrace();
         }
         frame = new JFrame("Scs creator");
+
+        Image image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/images/icon.png"))).getImage();
+
+        frame.setIconImage(image);
         //todo color
 
         frame.setBackground(Color.white);

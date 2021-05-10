@@ -11,7 +11,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class LinkMouseListener {
-    private static String DEFAULT_TEXT;
+    private String DEFAULT_TEXT;
 
     public LinkMouseListener(JLabel link) {
         DEFAULT_TEXT = link.getText();

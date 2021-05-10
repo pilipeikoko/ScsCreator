@@ -6,6 +6,7 @@ import org.bsuir.scs.view.border.RoundedBorder;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class CheckViewBuilder {
     private final JTextArea label;
@@ -81,6 +82,9 @@ public class CheckViewBuilder {
 
         dialog.add(scrollPane);
         dialog.pack();
+
+        Image image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/images/icon.png"))).getImage();
+        dialog.setIconImage(image);
 
         dialog.setLocation(dim.width/2-dialog.getSize().width/2, dim.height/2-dialog.getSize().height/2);
         dialog.setVisible(true);

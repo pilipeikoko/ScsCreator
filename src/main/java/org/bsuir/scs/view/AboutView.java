@@ -5,6 +5,7 @@ import org.bsuir.scs.controller.LinkMouseListener;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
+import java.util.Objects;
 
 public class AboutView {
 
@@ -13,6 +14,10 @@ public class AboutView {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
         JDialog dialog = new JDialog();
+
+        Image image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/images/icon.png"))).getImage();
+        dialog.setIconImage(image);
+
         dialog.setTitle("About");
 
         JPanel panel = new JPanel();
@@ -24,22 +29,31 @@ public class AboutView {
         Font simpleFont = new Font("TimesRoman", Font.PLAIN, 12);
 
         JLabel source = new JLabel("source-govno-code:\n");
-        JLabel link = new JLabel("https://github.com/pilipeikoko/ScsCreator");
-        new LinkMouseListener(link);
+        JLabel gitLink = new JLabel("https://github.com/pilipeikoko/ScsCreator");
+        JLabel iconCreatorText = new JLabel("icon-govno-creator:");
+        JLabel iconCreatorLink = new JLabel("https://www.deviantart.com/makshilo");
+
+        new LinkMouseListener(gitLink);
+        new LinkMouseListener(iconCreatorLink);
 
         source.setFont(boldFont);
-        link.setFont(simpleFont);
+        gitLink.setFont(simpleFont);
+        iconCreatorText.setFont(boldFont);
+        iconCreatorLink.setFont(simpleFont);
 
         layout.setHorizontalGroup(layout.createParallelGroup()
                 .addComponent(source)
-                .addComponent(link)
+                .addComponent(gitLink)
+                .addComponent(iconCreatorText)
+                .addComponent(iconCreatorLink)
         );
         layout.setVerticalGroup(layout.createSequentialGroup()
                 .addComponent(source)
-                .addComponent(link)
+                .addComponent(gitLink)
+                .addComponent(iconCreatorText)
+                .addComponent(iconCreatorLink)
         );
-        panel.add(source);
-        panel.add(link);
+
 
         dialog.add(panel);
 
