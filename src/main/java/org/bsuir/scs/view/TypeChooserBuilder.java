@@ -1,6 +1,7 @@
 package org.bsuir.scs.view;
 
 import org.bsuir.scs.util.DefaultParameters;
+import org.bsuir.scs.view.border.RoundedBorder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +13,7 @@ public class TypeChooserBuilder {
     private final ButtonGroup buttonGroup;
 
     private final JRadioButton[] radioButtons;
+    private final JButton clearButton;
 
     public TypeChooserBuilder() {
         radioButtons = new JRadioButton[AMOUNT_OF_RADIO_BUTTONS];
@@ -19,6 +21,12 @@ public class TypeChooserBuilder {
         buttonGroup = new ButtonGroup();
         //todo color
         panel.setBackground(Color.white);
+
+        clearButton = new JButton("clear");
+        clearButton.setForeground(Color.BLACK);
+        clearButton.setBackground(Color.WHITE);
+        clearButton.setBorder(new RoundedBorder(5));
+
 
         JRadioButton conceptButton = new JRadioButton("concept");
         JRadioButton nrelButton = new JRadioButton("nrel");
@@ -46,6 +54,7 @@ public class TypeChooserBuilder {
         panel.add(conceptButton);
         panel.add(nrelButton);
         panel.add(rrelButton);
+        panel.add(clearButton);
 
         GroupLayout layout = new GroupLayout(panel);
         panel.setLayout(layout);
@@ -53,17 +62,25 @@ public class TypeChooserBuilder {
         layout.setVerticalGroup(layout.createSequentialGroup()
                 .addComponent(conceptButton)
                 .addComponent(nrelButton)
-                .addComponent(rrelButton));
+                .addComponent(rrelButton)
+                .addComponent(clearButton)
+        );
 
         layout.setHorizontalGroup(layout.createParallelGroup()
                 .addComponent(conceptButton)
                 .addComponent(nrelButton)
-                .addComponent(rrelButton));
+                .addComponent(rrelButton)
+                .addComponent(clearButton)
+        );
     }
 
 
     public JPanel getPanel() {
         return panel;
+    }
+
+    public JButton getClearButton() {
+        return clearButton;
     }
 
     public ButtonGroup getButtonGroup() {
