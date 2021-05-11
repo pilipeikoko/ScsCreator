@@ -35,7 +35,8 @@ public class MainFrame {
         new MainFrameController(typeChooserBuilder.getButtonGroup(), typeChooserBuilder.getRadioButtons(),
                 typeCardsBuilder.getConceptTextFields(), typeCardsBuilder.getNrelTextFields(),
                 typeCardsBuilder.getRrelTextFields(), typeCardsBuilder.getNrelCheckBoxes(), typeCardsBuilder.getRrelCheckBoxes(),
-                typeCardsBuilder.getCards(), controlButtonsBuilder.getCheckButton(), controlButtonsBuilder.getSaveButton());
+                typeCardsBuilder.getCards(), controlButtonsBuilder.getCheckButton(), controlButtonsBuilder.getSaveButton()
+                ,typeChooserBuilder.getClearButton());
     }
 
     private void setFrame() {

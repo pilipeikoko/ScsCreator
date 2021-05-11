@@ -37,10 +37,15 @@ public abstract class CustomCreator {
         stringBuilder.append("<- " + DefaultParameters.DEFINITION + ";;\n");
         stringBuilder.append("=> " + DefaultParameters.MAIN_IDTF + ":\n");
         stringBuilder.append("\t[Опр. (").append(russianIdentifier).append(")] ").append(DefaultParameters.RUSSIAN_LANGUAGE).append(";;\n");
-        stringBuilder.append("=> " + DefaultParameters.USING_CONSTANTS + ":\n");
-        stringBuilder.append("\t{\n");
-        stringBuilder.append(constants);
-        stringBuilder.append("\t};;\n");
+
+        if (!constants.isEmpty()) {
+            stringBuilder.append("=> " + DefaultParameters.USING_CONSTANTS + ":\n");
+            stringBuilder.append("\t{\n");
+            stringBuilder.append(constants);
+            stringBuilder.append("\t};;\n");
+        }
+
+
         stringBuilder.append("<= " + DefaultParameters.TEXT_TRANSLATION + ": ...\n");
         stringBuilder.append("\t(*\n");
         stringBuilder.append("\t\t-> " + DefaultParameters.EXAMPLE + ":\n");
@@ -73,11 +78,12 @@ public abstract class CustomCreator {
         stringBuilder.append("<- " + DefaultParameters.STATEMENT + ";;\n");
         stringBuilder.append("=> " + DefaultParameters.MAIN_IDTF + ":\n");
         stringBuilder.append("\t[Утв. (").append(russianIdentifier).append(")] ").append(DefaultParameters.RUSSIAN_LANGUAGE).append(";;\n");
-        ;
-        stringBuilder.append("=> " + DefaultParameters.USING_CONSTANTS + ":\n");
-        stringBuilder.append("\t{\n");
-        stringBuilder.append(constants);
-        stringBuilder.append("\t};;\n");
+        if (!constants.isEmpty()) {
+            stringBuilder.append("=> " + DefaultParameters.USING_CONSTANTS + ":\n");
+            stringBuilder.append("\t{\n");
+            stringBuilder.append(constants);
+            stringBuilder.append("\t};;\n");
+        }
         stringBuilder.append("<= " + DefaultParameters.TEXT_TRANSLATION + ": ...\n");
         stringBuilder.append("\t(*\n");
         stringBuilder.append("\t\t-> " + DefaultParameters.EXAMPLE + ":\n");

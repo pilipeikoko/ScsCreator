@@ -42,12 +42,14 @@ public class MainFrameController {
     private final JCheckBox[] rrelCheckBoxes;
     private final JButton checkBottom;
     private final JButton saveButton;
+    private final JButton clearButton;
 
     private final JPanel cards;
 
     public MainFrameController(ButtonGroup buttonGroup, JRadioButton[] radioButtons, JTextField[] conceptTextFields,
                                JTextField[] nrelTextFields, JTextField[] rrelTextFields, JCheckBox[] nrelCheckBoxes,
-                               JCheckBox[] rrelCheckBoxes, JPanel cards, JButton checkBottom, JButton saveButton) {
+                               JCheckBox[] rrelCheckBoxes, JPanel cards, JButton checkBottom, JButton saveButton,
+                               JButton clearButton) {
         this.buttonGroup = buttonGroup;
         this.radioButtons = radioButtons;
         this.conceptTextFields = conceptTextFields;
@@ -58,9 +60,28 @@ public class MainFrameController {
         this.cards = cards;
         this.checkBottom = checkBottom;
         this.saveButton = saveButton;
+        this.clearButton = clearButton;
         addRadioButtonListener();
         addCheckButtonListener();
         addSaveButtonListener();
+        addClearButtonListener();
+    }
+
+    private void addClearButtonListener() {
+        clearButton.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < conceptTextFields.length; ++i) {
+                    conceptTextFields[i].setText("");
+                }
+                for (int i = 0; i < nrelTextFields.length; ++i) {
+                    nrelTextFields[i].setText("");
+                }
+                for (int i = 0; i < rrelTextFields.length; ++i) {
+                    rrelTextFields[i].setText("");
+                }
+            }
+        });
     }
 
     private void addSaveButtonListener() {

@@ -13,7 +13,7 @@ public class ConstantsParser {
 
         int i = 0;
         while (i < string.length()) {
-            if (string.charAt(i) == '(') {
+            if (string.charAt(i) == '[') {
                 int beginIndex = ++i;
 
                 while (string.charAt(++i) != ' ');
@@ -30,14 +30,14 @@ public class ConstantsParser {
         StringBuilder stringBuilder = new StringBuilder();
 //todo ( amount should be equal )
         for (int i = 0; i < string.length(); ++i) {
-            if (string.charAt(i) == '(') {
+            if (string.charAt(i) == '[') {
                 stringBuilder.append(DefaultParameters.LINK_START);
 
                 while (string.charAt(++i) != ' ') {
                     stringBuilder.append(string.charAt(i));
                 }
                 stringBuilder.append("\">");
-            } else if (string.charAt(i) == ')') {
+            } else if (string.charAt(i) == ']') {
                 stringBuilder.append(DefaultParameters.LINK_END);
             } else {
                 stringBuilder.append(string.charAt(i));

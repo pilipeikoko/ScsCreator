@@ -30,7 +30,7 @@ public class HelperView {
 
         JLabel howToUseLabel = new JLabel("How to use it?\n");
         JLabel dontUseLabel = new JLabel("Don't use it\n");
-        JLabel constantsExplanation = new JLabel("To add constants and its html links, you have to pass it in brackets");
+        JLabel constantsExplanation = new JLabel("To add constants and its html links, you have to pass it in square brackets");
         JLabel exampleText = new JLabel("Example:");
 
         Image exampleImage = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("/images/example.png"))).getImage();

@@ -28,7 +28,6 @@ public class RrelCreator extends CustomCreator {
 
     @Override
     public void create() {
-        //todo add constants parser
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(createHeader());
