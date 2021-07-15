@@ -1,1 +1,3 @@
-Чтобы скачать приложение, переходим во вкладку releases справа, скачиваем последнюю версию, .jar файл. 
+Semantic Code String creator using SWING. 
+
+
